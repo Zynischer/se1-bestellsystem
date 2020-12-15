@@ -18,6 +18,8 @@ public class Customer {
 	 * @param contact Kontaktadresse des Benutzers
 	 */
 	protected Customer(String id, String name, String contact) {
+		if(name == null) name = "";
+		if(contact == null) contact = "";
 		this.id = id;
 		lastName = name;
 		firstName = "";
@@ -29,6 +31,7 @@ public class Customer {
 	}
 
 	public void setFirstName(String firstName) {
+		if(firstName == null) firstName = "";
 		this.firstName = firstName;
 	}
 
@@ -37,6 +40,7 @@ public class Customer {
 	}
 
 	public void setLastName(String lastName) {
+		if(lastName == null) lastName = "";
 		this.lastName = lastName;
 	}
 
@@ -45,6 +49,7 @@ public class Customer {
 	}
 
 	public void setContact(String contact) {
+		if(contact == null) contact = "";
 		this.contact = contact;
 	}
 
