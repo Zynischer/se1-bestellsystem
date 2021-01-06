@@ -23,6 +23,8 @@ public class Order {
 	 */
 	protected Order(long id, Date date, Customer customer) {
 		this.id = id;
+		if(date == null) 
+			date = new Date();
 		this.date = date;
 		this.customer = customer;
 		this.items = new ArrayList<OrderItem>();
@@ -49,6 +51,8 @@ public class Order {
 	}
 	
 	public Order addItem(OrderItem item) {
+		if(item == null || items.contains(item)) 
+			return null;
 		items.add(item);
 		return this;
 	}

@@ -20,9 +20,9 @@ public class Article {
 	 */
 	protected Article(String id, String descr, long price, int units) {
 		this.id = id;
-		description = descr;
-		unitPrice = price;
-		unitsInStore = units;
+		setDescription(descr);
+		setUnitPrice(price);
+		setUnitsInStore(units);
 	}
 
 	public String getDescription() {
@@ -30,6 +30,8 @@ public class Article {
 	}
 
 	public void setDescription(String descr) {
+		if(descr == null || descr.isEmpty())
+			descr = "";
 		description = descr;
 	}
 
@@ -38,6 +40,8 @@ public class Article {
 	}
 
 	public void setUnitPrice(long price) {
+		if(price < 0 || price == Long.MAX_VALUE)
+			price = 0;
 		this.unitPrice = price;
 	}
 
@@ -46,6 +50,8 @@ public class Article {
 	}
 
 	public void setUnitsInStore(int number) {
+		if(number < 0 || number >= Integer.MAX_VALUE)
+			number = 0;
 		this.unitsInStore = number;
 	}
 

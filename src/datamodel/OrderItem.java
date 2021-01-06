@@ -17,9 +17,9 @@ public class OrderItem {
 	 * @param units Verkaufte Einheiten
 	 */
 	protected OrderItem(String descr, Article article, int units) {
-		description = descr;
+		setDescription(descr);
+		setUnitsOrdered(units);
 		this.article = article;
-		unitsOrdered = units;
 	}
 
 	public String getDescription() {
@@ -27,6 +27,8 @@ public class OrderItem {
 	}
 
 	public void setDescription(String descr) {
+		if(descr == null || descr.isEmpty())
+			descr = "";
 		description = descr;
 	}
 
@@ -35,6 +37,8 @@ public class OrderItem {
 	}
 
 	public void setUnitsOrdered(int number) {
+		if(number < 0)
+			number = 0;
 		this.unitsOrdered = number;
 ;
 	}
